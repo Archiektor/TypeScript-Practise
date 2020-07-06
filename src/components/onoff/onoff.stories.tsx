@@ -7,5 +7,6 @@ export default {
     component: OnOff,
 };
 
-export const DefaultOnOff = () => <OnOff onClick={action("on or off clicked")}/>
+export const DefaultOn = () => <OnOff defaultOn={true} onClick={action("on or off clicked")}/>
+export const DefaulOff = () => <OnOff  defaultOn={false} onClick={action("on or off clicked")}/>
 

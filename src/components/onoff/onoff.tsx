@@ -2,10 +2,11 @@ import React, {useState} from "react";
 
 type OnOffType = {
     onClick?: () => void,
+    defaultOn?: boolean,
 }
 
-const OnOff: React.FC<OnOffType> = () => {
-    const [work, setWork] = useState(false);
+const OnOff: React.FC<OnOffType> = (props) => {
+    const [work, setWork] = useState(props.defaultOn ? props.defaultOn : false);
 
     const onStyle = {
         width: "30px",
