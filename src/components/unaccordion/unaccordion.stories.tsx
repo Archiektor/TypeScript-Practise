@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {action} from "@storybook/addon-actions";
 import UnAccordion from "./unaccordion";
 
 export default {
