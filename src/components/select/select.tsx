@@ -16,13 +16,13 @@ const Select: React.FC<SelectPropsType> = (props) => {
         setSelectedText(e.currentTarget.value);
     }
     return (
-        <div className={s.wrapper}>
-            <div className={s.wrapper__div}>{props.value}</div>
-            <select className={s.wrapper__sel} value={selectedText} onChange={onChangeHadler}>
+        <div className={s.wrapperSelect}>
+            <h3 className={s.wrapperSelect__div}>{props.value}</h3>
+            <select className={s.wrapperSelect__sel} value={selectedText} onChange={onChangeHadler}>
                 {props.items.map(i => {
-                    if (i.title === 'none') return <option className={s.wrapper__item_hidden}
+                    if (i.title === 'none') return <option className={s.wrapperSelect__item_hidden}
                                                            key={v1()}>{i.title}</option>
-                    return <option className={s.wrapper__item} key={v1()}>{i.title}</option>
+                    return <option className={s.wrapperSelect__item} key={v1()}>{i.title}</option>
                 })}
             </select>
         </div>

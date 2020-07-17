@@ -5,9 +5,9 @@
 }
 
 
-.wrapper {
+.wrapperSelect {
   background-color: wheat;
-  padding: 10px;
+  padding: 10px 10px 30px 10px;
   @include makeWH(200px, 80px);
   @include flexCenter;
   flex-flow: column nowrap;
@@ -23,7 +23,7 @@
   }
 
   &__item {
-
+    @extend %text-shadow;
     &_hidden {
       display: none;
     }
