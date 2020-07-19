@@ -8,11 +8,11 @@ type StarPropsType = {
     value: RatingValueType,
 }
 
-const Star = (props: StarPropsType) => {
+const Star: React.FC<StarPropsType> = React.memo((props) => {
     return (
         <span onClick={() => {props.onClick(props.value)}}>{props.selected ? <b> star</b> : " star"}</span>
     )
-}
+})
 
 type RatingPropsType = {
     value: RatingValueType,
@@ -20,7 +20,7 @@ type RatingPropsType = {
 }
 
 
-const Rating = (props: RatingPropsType) => {
+const Rating: React.FC<RatingPropsType> = React.memo((props) => {
     const {value} = props;
 
     return (
@@ -32,6 +32,6 @@ const Rating = (props: RatingPropsType) => {
             <Star onClick={props.onClick} value={5} selected={value > 4}/>
         </div>
     )
-}
+})
 
 export default Rating;

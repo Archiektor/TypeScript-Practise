@@ -5,7 +5,7 @@ type UncontrollledOnOffType = {
     working: boolean,
 }
 
-const UncontrollledOnOff: React.FC<UncontrollledOnOffType> = ({onClick, working}) => {
+const UncontrollledOnOff: React.FC<UncontrollledOnOffType> = React.memo(({onClick, working}) => {
 
     const onStyle = {
         width: "30px",
@@ -45,6 +45,6 @@ const UncontrollledOnOff: React.FC<UncontrollledOnOffType> = ({onClick, working}
             <div style={indicatorStyle}></div>
         </div>
     )
-}
+})
 
 export default UncontrollledOnOff;

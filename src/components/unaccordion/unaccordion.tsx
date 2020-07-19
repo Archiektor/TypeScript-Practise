@@ -23,7 +23,7 @@ type UnAccordionPropsType = {
     title: string,
 }
 
-const UncontrolledAccordion: React.FC<UnAccordionPropsType> = ({title}) => {
+const UncontrolledAccordion: React.FC<UnAccordionPropsType> = React.memo(({title}) => {
     // console.log("component render");
 
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -34,7 +34,7 @@ const UncontrolledAccordion: React.FC<UnAccordionPropsType> = ({title}) => {
             {!state.collapsed && <AccordionBody/>}
         </React.Fragment>
     )
-}
+})
 
 
 type AccordionTitlePropsType = {
@@ -42,14 +42,14 @@ type AccordionTitlePropsType = {
     onClick: () => void,
 }
 
-const AccordionTitle: React.FC<AccordionTitlePropsType> = (props) => {
+const AccordionTitle: React.FC<AccordionTitlePropsType> = React.memo((props) => {
     const {nextLevelTitle} = props;
     return (
         <h3 onClick={() => props.onClick()}>--- {nextLevelTitle} ---</h3>
     )
-}
+})
 
-const AccordionBody = () => {
+const AccordionBody = React.memo(() => {
     return (
         <ul>
             <li>1</li>
@@ -57,6 +57,6 @@ const AccordionBody = () => {
             <li>3</li>
         </ul>
     )
-}
+})
 
 export default UncontrolledAccordion;

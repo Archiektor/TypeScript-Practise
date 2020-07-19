@@ -14,33 +14,35 @@ type AccordionPropsType = {
     handleClick: (value: any) => void,
 }
 
-const Accordion: React.FC<AccordionPropsType> = ({title, collapsed, changeCollapse, items, handleClick}) => {
+const Accordion: React.FC<AccordionPropsType> = React.memo(({title, collapsed, changeCollapse, items, handleClick}) => {
     return (
         <React.Fragment>
             <AccordionTitle nextLevelTitle={title} changeCollapse={changeCollapse}/>
             {!collapsed && <AccordionBody handleClick={handleClick} items={items}/>}
         </React.Fragment>
     )
-}
+})
 
 type AccordionTitlePropsType = {
     nextLevelTitle: string,
     changeCollapse?: () => void,
 }
 
-const AccordionTitle: React.FC<AccordionTitlePropsType> = ({nextLevelTitle, changeCollapse}) => {
+const AccordionTitle: React.FC<AccordionTitlePropsType> = React.memo(({nextLevelTitle, changeCollapse}) => {
     return <h3 onClick={() => changeCollapse!()}> -{nextLevelTitle}- </h3>
-}
+})
 
 type AccBodyType = {
     items: Array<ItemType>,
     handleClick: (value: any) => void,
 }
 
-const AccordionBody: React.FC<AccBodyType> = ({items,handleClick}) => {
+const AccordionBody: React.FC<AccBodyType> = React.memo(({items, handleClick}) => {
     const renderAllItems = (items: Array<ItemType>) => {
         return items.map(i => {
-            return <li onClick={() => {handleClick(i.value)}} key={v1()}>{i.title}</li>
+            return <li onClick={() => {
+                handleClick(i.value)
+            }} key={v1()}>{i.title}</li>
         })
     }
 
@@ -49,6 +51,6 @@ const AccordionBody: React.FC<AccBodyType> = ({items,handleClick}) => {
             {renderAllItems(items)}
         </ul>
     )
-}
+})
 
 export default Accordion;

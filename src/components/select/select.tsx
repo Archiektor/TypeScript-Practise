@@ -9,7 +9,7 @@ type SelectPropsType = {
     items: Array<ItemType>,
 }
 
-const Select: React.FC<SelectPropsType> = (props) => {
+const Select: React.FC<SelectPropsType> = React.memo((props) => {
     const [selectedText, setSelectedText] = useState<string>(props.value);
 
     const onChangeHadler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -27,6 +27,6 @@ const Select: React.FC<SelectPropsType> = (props) => {
             </select>
         </div>
     )
-}
+})
 
 export default Select;

@@ -11,7 +11,7 @@ const Star = (props: StarPropsType) => {
     )
 }
 
-const UncontolledRating = () => {
+const UncontolledRating = React.memo(() => {
     const [value, setValue] = useState<number>(0);
 
     return (
@@ -23,6 +23,6 @@ const UncontolledRating = () => {
             <Star setValue={() => {setValue(5)}} selected={value > 4}/>
         </div>
     )
-}
+})
 
 export default UncontolledRating;
